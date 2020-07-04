@@ -10,4 +10,4 @@ wsl遇到的奇怪问题
 #2.奇怪的权限问题
 
 
-碰到问题是无法chmod,老提示chmod: cannot read directory,后来搜的问题是wsl配置文件还要搞一下sudo vim /etc/wsl.conf,发现并不对,最后是终端sudo umount /mnt/e  然后sudo mount -t drvfs E:/mnt/e -o metadata,盘符写自己的就行,再把项目的node_modle删掉重新yarn就好了
+碰到问题是无法chmod,老提示chmod: cannot read directory,后来搜的问题是wsl配置文件还要搞一下sudo vim /etc/wsl.conf,发现并不对,最后是终端sudo umount /mnt/e  然后sudo mount -t drvfs E: /mnt/e -o metadata,盘符写自己的就行,再把项目的node_modle删掉重新yarn就好了
