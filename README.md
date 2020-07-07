@@ -11,3 +11,20 @@ wsl遇到的奇怪问题
 
 
 碰到问题是无法chmod,老提示chmod: cannot read directory,后来搜的问题是wsl配置文件还要搞一下sudo vim /etc/wsl.conf,发现并不对,最后是终端sudo umount /mnt/e  然后sudo mount -t drvfs E: /mnt/e -o metadata,盘符写自己的就行,再把项目的node_modle删掉重新yarn就好了
+
+
+
+#3.wsl安装flutter问题
+
+
+(1)直接在wsl里配置flutter会报错:
+/mnt/c/Development/flutter/bin/flutter: line 5: $'\r': command not found
+/mnt/c/Development/flutter/bin/flutter: line 6: $'\r': command not found
+/mnt/c/Development/flutter/bin/flutter: line 14: $'\r': command not found
+(2)要配置一下环境变量:
+alias winpro='cd /mnt/<DIRECTORY IN WINDOWS YOU WANT>'
+
+flutter() {
+    command CMD.exe /c flutter $@
+}
+(3)如果有zsh,也要复制给zsh环境变量一份,就能运行flutter了
